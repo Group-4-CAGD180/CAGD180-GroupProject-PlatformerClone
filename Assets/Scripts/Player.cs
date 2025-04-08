@@ -12,6 +12,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // respawning variables
+    // holds player lives
+    public int lives = 3;
+    public int fallDepth;
+    private Vector3 startPosition;
+
+    //jump force added when the player presses space
+    public float jumpForce = 8f;
+
+    //rigidbody which we will eventually add force to
+    private Rigidbody rigidbody;
     // Start is called before the first frame update
     void Start()
     {
