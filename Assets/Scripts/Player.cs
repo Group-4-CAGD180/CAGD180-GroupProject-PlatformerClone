@@ -8,7 +8,9 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -78,7 +80,7 @@ public class Player : MonoBehaviour
         Vector3 add_position = Vector3.zero;
 
         //if the player inputs the a key, go left
-        if (Input.GetKey("a"))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             add_position += Vector3.left * Time.deltaTime * speed;
         }
@@ -105,7 +107,64 @@ public class Player : MonoBehaviour
 
         if (transform.position.y < fallDepth)
         {
-            
+            Respawn();
+        }
+    }
+
+    /// <summary>
+    /// This function respawns the player upon being called
+    /// </summary>
+    private void Respawn()
+    {
+        transform.position = startPosition;
+        lives--;
+
+        if (lives <= 0)
+        {
+            this.enabled = false;
+            SceneManager.LoadScene(2);
+        }
+    }
+
+    /// <summary>
+    /// This function handles collisions with most objects in the game
+    /// </summary>
+    /// <param name="other"></param>
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Coin")
+        {
+            //if the object colliding is tagged as "Coin"
+           // totalScore += coinValue;
+            Destroy(other.gameObject);
+        }
+        else if (other.gameObject.tag == "Spike")
+        {
+            //if the object colliding is tagged as "Spike", respawn
+            Respawn();
+        }
+        else if (other.gameObject.tag == "Enemy")
+        {
+            //if the object colliding is tagged as "Enemy", respawn
+            Respawn();
+        }
+        else if (other.gameObject.tag == "BulletBill")
+        {
+            Respawn();
+        }
+        else if (other.gameObject.tag == "Laser")
+        {
+         //   StartCoroutine(Stun());
+        }
+        else if (other.gameObject.tag == "Portal")
+        {
+            //if the object colliding is tagged as "Portal", teleport player
+            //to next area
+
+            //restart the startPos to the spawnPoint position
+          //  startPosition = other.gameObject.GetComponent<Portal>().spawnPoint.transform.position;
+            //bring the player to the startPos
+            transform.position = startPosition;
         }
     }
 }
