@@ -245,8 +245,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 3
-  fallDepth: 0
+  fallDepth: -20
   jumpForce: 8
+  speed: 10
 --- !u!54 &222796817
 Rigidbody:
   m_ObjectHideFlags: 0
