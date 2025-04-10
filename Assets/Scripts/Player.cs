@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     public float jumpForce = 8f;
 
     //rigidbody which we will eventually add force to
-    private Rigidbody rigidbody;
+    private new Rigidbody rigidbody;
 
     // speed for the player to move left and right
     public float speed = 10f;
@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
     {
         SpaceJump();
         Move();
+        StompBounce();
     }
 
     /// <summary>
@@ -125,7 +126,19 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene(2);
         }
     }
-
+    //Applies force to the player upward when stomping on a Simple Enemy
+    private void StompBounce()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 1f))
+        {
+            if (hit.collider.tag == "SimpleEnemy")
+            {
+                rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                print("StompExecuted");
+            }
+        }
+    }
     /// <summary>
     /// This function handles collisions with most objects in the game
     /// </summary>
@@ -143,7 +156,7 @@ public class Player : MonoBehaviour
             //if the object colliding is tagged as "Spike", respawn
             Respawn();
         }
-        else if (other.gameObject.tag == "Enemy")
+        else if (other.gameObject.tag == "SimpleEnemy")
         {
             //if the object colliding is tagged as "Enemy", respawn
             Respawn();
