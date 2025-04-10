@@ -156,6 +156,10 @@ public class Player : MonoBehaviour
         {
          //   StartCoroutine(Stun());
         }
+        else if (other.gameObject.tag == "UpCube")
+        {
+
+        }
         else if (other.gameObject.tag == "Portal")
         {
             //if the object colliding is tagged as "Portal", teleport player
