@@ -29,6 +29,10 @@ public class Player : MonoBehaviour
     // speed for the player to move left and right
     public float speed = 10f;
 
+    //Arms for the model
+    public GameObject leftArm;
+    public GameObject rigthArm;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +47,7 @@ public class Player : MonoBehaviour
     {
         SpaceJump();
         Move();
+        SpinAttack();
         StompBounce();
     }
 
@@ -137,6 +142,22 @@ public class Player : MonoBehaviour
                 rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 print("StompExecuted");
             }
+        }
+    }
+
+
+    /// <summary>
+    /// This function handles player spin attack
+    /// </summary>
+       private void SpinAttack()
+    {
+        if (Input.GetKey(KeyCode.E))
+        {
+            Transform leftArmTransform = leftArm.GetComponent<Transform>();
+
+          //  leftArmTransform.rotation = new Quaternion(0.0, 0.0, -90.0);
+          //  leftArmTransform.RotateAround(Player.transform.position, 
+           //     new Vector3(0, 1, 0), 100 * Time.deltaTime);
         }
     }
     /// <summary>
