@@ -204,6 +204,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 991383187698734076, guid: 0ae18590bf0eae64fa06f40a882fe923, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9.182896
+      objectReference: {fileID: 0}
+    - target: {fileID: 991383187698734076, guid: 0ae18590bf0eae64fa06f40a882fe923, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -441,7 +445,7 @@ Transform:
   m_GameObject: {fileID: 632881612}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.772549, y: 11.663455, z: 0.0000009536743}
+  m_LocalPosition: {x: -5.2568, y: 11.663455, z: 0.0000009536743}
   m_LocalScale: {x: 1.2599429, y: 22.310429, z: 24.98177}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -459,9 +463,10 @@ GameObject:
   - component: {fileID: 670371893}
   - component: {fileID: 670371892}
   - component: {fileID: 670371891}
+  - component: {fileID: 670371895}
   m_Layer: 0
-  m_Name: UpCube
-  m_TagString: UpCube
+  m_Name: HeightCube
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -552,6 +557,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &670371895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670371890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85ef3f985200e14fa7f0632a68e8039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraCube: {fileID: 1531073490}
+  Height: 8
 --- !u!1 &865091047
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,7 +659,7 @@ Transform:
   m_GameObject: {fileID: 865091047}
   serializedVersion: 2
   m_LocalRotation: {x: 0.31482086, y: 0, z: 0, w: 0.94915116}
-  m_LocalPosition: {x: -0.017593816, y: 4.7742524, z: -12.139999}
+  m_LocalPosition: {x: 0, y: 5.3242526, z: -12.139999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -692,7 +711,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45594e6780b23744282cf9f5da4001fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedYPosition: 0
 --- !u!850595691 &1045145295
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -857,7 +875,7 @@ Transform:
   m_GameObject: {fileID: 1531073490}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.16, y: 5.1, z: 8}
+  m_LocalPosition: {x: 0, y: 5.65, z: 8}
   m_LocalScale: {x: 0.28481236, y: 0.6514948, z: 44.782604}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -979,7 +997,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6456245408603398061, guid: 951ba6310e0a5b04cbc2b33da59aaabc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.772549
+      value: 5.2568
       objectReference: {fileID: 0}
     - target: {fileID: 6456245408603398061, guid: 951ba6310e0a5b04cbc2b33da59aaabc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1034,6 +1052,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 991383187698734076, guid: 0ae18590bf0eae64fa06f40a882fe923, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9.253657
+      objectReference: {fileID: 0}
     - target: {fileID: 991383187698734076, guid: 0ae18590bf0eae64fa06f40a882fe923, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
