@@ -65,15 +65,12 @@ public class Player : MonoBehaviour
 
         SpaceJump();
         Move();
-<<<<<<< HEAD
-=======
         SpinAttack();
         StompBounce();
         if (isSpinning == true)
         {
             transform.Rotate(0, 3, 0);
         }
->>>>>>> 54e70b06d75510d943545fc425f874d485226b2f
     }
 
     /// <summary>
@@ -166,8 +163,6 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene(2);
         }
     }
-<<<<<<< HEAD
-=======
     //Applies force to the player upward when stomping on a Simple Enemy
     private void StompBounce()
     {
@@ -232,7 +227,6 @@ public class Player : MonoBehaviour
 
 
 
->>>>>>> 54e70b06d75510d943545fc425f874d485226b2f
     /// <summary>
     /// This function handles collisions with most objects in the game
     /// </summary>
