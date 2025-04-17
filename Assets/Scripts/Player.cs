@@ -32,7 +32,8 @@ public class Player : MonoBehaviour
     // speed for the player to move left and right
     public float speed = 10f;
 
-    //Arms for the model
+    //mesh for the model
+    public GameObject body;
     public GameObject leftArm;
     public GameObject rightArm;
 
@@ -69,7 +70,9 @@ public class Player : MonoBehaviour
         StompBounce();
         if (isSpinning == true)
         {
-            transform.Rotate(0, 3, 0);
+            Transform bodyTransform = body.GetComponent<Transform>();
+            bodyTransform.Rotate(0, 3, 0);
+           // transform.Rotate(0, 3, 0);
         }
     }
 
@@ -195,7 +198,7 @@ public class Player : MonoBehaviour
         rightArmTransform.rotation = Quaternion.Euler(0, 0, 90);
 
         //turn player red
-        GetComponent<Renderer>().material = red;
+        body.GetComponent<Renderer>().material = red;
             leftArm.GetComponent<Renderer>().material = red;
         rightArm.GetComponent<Renderer>().material = red;
 
@@ -204,7 +207,7 @@ public class Player : MonoBehaviour
         isSpinning = false;
         transform.rotation = Quaternion.Euler(0, 0, 0);
         //go back to default color
-        GetComponent<Renderer>().material = green;
+        body.GetComponent<Renderer>().material = green;
         leftArm.GetComponent<Renderer>().material = green;
         rightArm.GetComponent<Renderer>().material = green;
         //reset arms
