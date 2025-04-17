@@ -51,11 +51,7 @@ public class EnemyMove : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, 1f))
         {
-            print("Detected");
-            if (hit.collider.tag == "Player")
-            {
-                gameObject.SetActive(false);
-            }
+            Destroy(gameObject);
         }
     }
 }
