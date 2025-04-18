@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     private Vector3 startPosition;
 
     //total player score
-    public float totalScore = 0;
+    public float totalWumpaCount = 0;
 
     //jump force added when the player presses space
     public float jumpForce = 8f;

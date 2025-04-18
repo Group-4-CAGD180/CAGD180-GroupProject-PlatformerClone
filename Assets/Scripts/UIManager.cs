@@ -1,8 +1,8 @@
 /*
  * Name: Wade Lawler
  * Date: 4/15/25
- * Last Modified: 4/15/25
- * Description: This script handles all the Ui within the game, such as score
+ * Last Modified: 4/17/25
+ * Description: This script handles all the Ui within the game, such as Wumpa Fruit count
  *              and player lives
  */
 
@@ -15,8 +15,8 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
 
-    public Player playerMove;
-    public TMP_Text scoreText;
+    public Player player;
+    public TMP_Text wumpaText;
     public TMP_Text livesText;
 
     // Start is called before the first frame update
@@ -28,8 +28,8 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Score: " + playerMove.totalScore;
-        livesText.text = "lives: " + playerMove.lives;
+        wumpaText.text = "Wumpa fruit: " + player.totalWumpaCount;
+        livesText.text = "Lives: " + player.lives;
     }
 }
 
