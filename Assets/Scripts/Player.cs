@@ -1,7 +1,7 @@
 /*
  * Author: Wade Lawler
  * Date Created: 4/3/25
- * Last Modified: 4/15/25
+ * Last Modified: 4/17/25
  * Description: This script handles player functionality, such as input,
  *              movement, respawning, etc.
  */
@@ -71,8 +71,7 @@ public class Player : MonoBehaviour
         if (isSpinning == true)
         {
             Transform bodyTransform = body.GetComponent<Transform>();
-            bodyTransform.Rotate(0, 3, 0);
-           // transform.Rotate(0, 3, 0);
+            bodyTransform.Rotate(0, 4, 0);
         }
     }
 
@@ -210,7 +209,9 @@ public class Player : MonoBehaviour
         body.GetComponent<Renderer>().material = green;
         leftArm.GetComponent<Renderer>().material = green;
         rightArm.GetComponent<Renderer>().material = green;
-        //reset arms
+        //reset mesh
+        Transform bodyTransform = body.GetComponent<Transform>();
+        bodyTransform.rotation = Quaternion.Euler(0, 0, 0);
         leftArmTransform.rotation = Quaternion.Euler(0, 0, -36);
         rightArmTransform.rotation = Quaternion.Euler(0, 0, 36);
         //start cooldown till player can spin again
@@ -259,10 +260,6 @@ public class Player : MonoBehaviour
         else if (other.gameObject.tag == "Laser")
         {
          //   StartCoroutine(Stun());
-        }
-        else if (other.gameObject.tag == "UpCube")
-        {
-
         }
         else if (other.gameObject.tag == "Portal")
         {
