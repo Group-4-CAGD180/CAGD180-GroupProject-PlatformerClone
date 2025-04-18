@@ -183,14 +183,13 @@ public class Player : MonoBehaviour
     /// <summary>
     /// This function handles player spin attack
     /// </summary>
-       IEnumerator SpinAttack()
+    IEnumerator SpinAttack()
     {
-
-        
         isSpinning = true;
+        canSpin = false;
 
         //move arms into position and spin
-         Transform leftArmTransform = leftArm.GetComponent<Transform>();
+        Transform leftArmTransform = leftArm.GetComponent<Transform>();
         leftArmTransform.rotation = Quaternion.Euler(0, 0, -90);
 
         Transform rightArmTransform = rightArm.GetComponent<Transform>();
@@ -198,7 +197,7 @@ public class Player : MonoBehaviour
 
         //turn player red
         body.GetComponent<Renderer>().material = red;
-            leftArm.GetComponent<Renderer>().material = red;
+        leftArm.GetComponent<Renderer>().material = red;
         rightArm.GetComponent<Renderer>().material = red;
 
         //wait for timer to end, then reset the player to default
