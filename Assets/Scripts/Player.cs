@@ -6,8 +6,10 @@
  *              movement, respawning, etc.
  */
 
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -223,10 +225,15 @@ public class Player : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Coin")
+        if (other.gameObject.tag == "WumpaFruit")
         {
-            //if the object colliding is tagged as "Coin"
-           // totalScore += coinValue;
+            //if the object colliding is tagged as "WumpaFruit"
+            // totalScore += TotalWumpaCount;
+            ++totalWumpaCount;
+            if (totalWumpaCount == 100)
+            {
+                ++lives;
+            }
             Destroy(other.gameObject);
         }
         else if (other.gameObject.tag == "Spike")
@@ -255,14 +262,6 @@ public class Player : MonoBehaviour
                 Respawn();
             }
         }
-        else if (other.gameObject.tag == "BulletBill")
-        {
-            Respawn();
-        }
-        else if (other.gameObject.tag == "Laser")
-        {
-         //   StartCoroutine(Stun());
-        }
         else if (other.gameObject.tag == "Portal")
         {
             //if the object colliding is tagged as "Portal", teleport player
@@ -275,6 +274,17 @@ public class Player : MonoBehaviour
             {
                 startPosition = other.gameObject.GetComponent<Portal>().spawnPoint.transform.position;
                 transform.position = startPosition;
+            }
+        }
+        else if (other.gameObject.tag == "Crate")
+        {
+            //if the object colliding is tagged as "Enemy", respawn
+            if (this.isSpinning == true)
+            {
+                totalWumpaCount++;
+                totalWumpaCount++;
+                totalWumpaCount++;
+                Destroy(other.gameObject);
             }
         }
     }
