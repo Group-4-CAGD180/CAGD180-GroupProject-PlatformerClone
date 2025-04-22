@@ -6,6 +6,9 @@ TagManager:
   tags:
   - UpCube
   - SimpleEnemy
+  - GuardedEnemy
+  - SpikeEnemy
+  - Portal
   layers:
   - Default
   - TransparentFX

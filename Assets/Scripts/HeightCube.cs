@@ -20,7 +20,7 @@ public class HeightCube : MonoBehaviour
         {
             Transform cameraTransform = cameraCube.GetComponent<Transform>();
 
-            cameraTransform.position = new Vector3(0, Height, 8);
+            cameraTransform.position = new Vector3(0, Height, 0);
         }
     }
 }

@@ -67,7 +67,6 @@ public class Player : MonoBehaviour
         SpaceJump();
         Move();
         SpinAttack();
-        StompBounce();
         if (isSpinning == true)
         {
             Transform bodyTransform = body.GetComponent<Transform>();
@@ -166,18 +165,6 @@ public class Player : MonoBehaviour
         }
     }
     //Applies force to the player upward when stomping on a Simple Enemy
-    private void StompBounce()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 1f))
-        {
-            if (hit.collider.tag == "SimpleEnemy")
-            {
-                rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                print("StompExecuted");
-            }
-        }
-    }
 
 
     /// <summary>
@@ -250,7 +237,23 @@ public class Player : MonoBehaviour
         else if (other.gameObject.tag == "SimpleEnemy")
         {
             //if the object colliding is tagged as "Enemy", respawn
+            if (this.isSpinning == false)
+            {
+                Respawn();
+            }
+        }
+        else if (other.gameObject.tag == "GuardedEnemy")
+        {
+            //if the object colliding is tagged as "Enemy", respawn
             Respawn();
+        }
+        else if (other.gameObject.tag == "SpikeEnemy")
+        {
+            //if the object colliding is tagged as "Enemy", respawn
+            if (this.isSpinning == false)
+            {
+                Respawn();
+            }
         }
         else if (other.gameObject.tag == "BulletBill")
         {
@@ -266,9 +269,13 @@ public class Player : MonoBehaviour
             //to next area
 
             //restart the startPos to the spawnPoint position
-          //  startPosition = other.gameObject.GetComponent<Portal>().spawnPoint.transform.position;
+            //  startPosition = other.gameObject.GetComponent<Portal>().spawnPoint.transform.position;
             //bring the player to the startPos
-            transform.position = startPosition;
+            if (other.gameObject.tag == "Portal")
+            {
+                startPosition = other.gameObject.GetComponent<Portal>().spawnPoint.transform.position;
+                transform.position = startPosition;
+            }
         }
     }
 }

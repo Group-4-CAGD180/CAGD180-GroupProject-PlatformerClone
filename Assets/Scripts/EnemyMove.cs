@@ -51,7 +51,28 @@ public class EnemyMove : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, 1f))
         {
-            Destroy(gameObject);
+            if (gameObject.tag == "SimpleEnemy")
+            {
+                Destroy(gameObject);
+            }
+            if (gameObject.tag == "GuardedEnemy")
+            {
+                Destroy(gameObject);
+            } 
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            if (other.gameObject.GetComponent<Player>().isSpinning == true)
+            {
+                if (this.gameObject.tag != "GuardedEnemy")
+                {
+                    Destroy(gameObject);
+                }
+                
+            }
         }
     }
 }
