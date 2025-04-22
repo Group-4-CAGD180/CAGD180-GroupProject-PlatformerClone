@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667555, g: 0.48427176, b: 0.5645241, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -38154,6 +38154,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 6841096419006248866, guid: 9b8538966169ea54db5e667b18ded02e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40446,7 +40450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8917842533154250981, guid: 00bcf6e85b8886a41804a976b1621f42, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1554.8322
+      value: 213266.83
       objectReference: {fileID: 0}
     - target: {fileID: 8917842533154250981, guid: 00bcf6e85b8886a41804a976b1621f42, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40458,7 +40462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8917842533154250981, guid: 00bcf6e85b8886a41804a976b1621f42, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 408
+      value: 622
       objectReference: {fileID: 0}
     - target: {fileID: 8917842533154250981, guid: 00bcf6e85b8886a41804a976b1621f42, type: 3}
       propertyPath: m_LocalRotation.w
@@ -40492,13 +40496,58 @@ PrefabInstance:
     - {fileID: 1754667381614780169, guid: 00bcf6e85b8886a41804a976b1621f42, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1730976953253633345, guid: 00bcf6e85b8886a41804a976b1621f42, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8783686680635812915}
   m_SourcePrefab: {fileID: 100100000, guid: 00bcf6e85b8886a41804a976b1621f42, type: 3}
 --- !u!4 &8783686680635812914 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8917842533154250981, guid: 00bcf6e85b8886a41804a976b1621f42, type: 3}
   m_PrefabInstance: {fileID: 8783686680635812913}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &8783686680635812915
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531073490}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &8851905660187040621
 MeshRenderer:
   m_ObjectHideFlags: 0
