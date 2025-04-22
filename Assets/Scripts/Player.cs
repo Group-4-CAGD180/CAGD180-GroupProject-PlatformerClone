@@ -7,9 +7,11 @@
  */
 
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using System.Threading.Tasks;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,7 +22,7 @@ public class Player : MonoBehaviour
     // holds player lives
     public int lives = 3;
     public int fallDepth;
-    private Vector3 startPosition;
+    public Vector3 startPosition;
 
     //total player score
     public float totalWumpaCount = 0;
@@ -223,15 +225,16 @@ public class Player : MonoBehaviour
     /// This function handles collisions with most objects in the game
     /// </summary>
     /// <param name="other"></param>
-    private void OnTriggerEnter(Collider other)
+    private async void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "WumpaFruit")
         {
             //if the object colliding is tagged as "WumpaFruit"
             // totalScore += TotalWumpaCount;
             ++totalWumpaCount;
-            if (totalWumpaCount == 100)
+            if (totalWumpaCount >= 100)
             {
+                totalWumpaCount = totalWumpaCount - 100;
                 ++lives;
             }
             Destroy(other.gameObject);
@@ -284,8 +287,22 @@ public class Player : MonoBehaviour
                 totalWumpaCount++;
                 totalWumpaCount++;
                 totalWumpaCount++;
+                if (totalWumpaCount >= 100)
+                {
+                    totalWumpaCount = totalWumpaCount - 100;
+                    ++lives;
+                }
                 Destroy(other.gameObject);
             }
+        }
+        else if (other.gameObject.tag == "BreakablePlatform")
+        {
+            await Task.Delay(TimeSpan.FromSeconds(2));
+            Destroy(other.gameObject);
+        }
+        else if (other.gameObject.tag == "End")
+        {
+            SceneManager.LoadScene (0);
         }
     }
 }

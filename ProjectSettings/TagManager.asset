@@ -11,6 +11,8 @@ TagManager:
   - Portal
   - WumpaFruit
   - Crate
+  - BreakablePlatform
+  - End
   layers:
   - Default
   - TransparentFX
